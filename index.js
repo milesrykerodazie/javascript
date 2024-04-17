@@ -151,16 +151,33 @@ const dataObj = {
   thePERCENT: 50,
 };
 
-const nameObj = dataObj.course;
-console.log("the plain object => ", dataObj);
+const nameObj = dataObj;
+console.log("the plain object course => ", nameObj);
 
 //the array
 const Array1 = [1, 2, 3, 4, 5, 6];
+
+const i1 = Array1[0];
+
+//working with push and pop
+
+console.log("the original array => ", Array1);
+
+const newitem3 = Array1.pop();
+console.log("the original array popped => ", Array1);
+const newArray = Array1.push(7);
+console.log("the new array => ", newArray);
+console.log("the original array updated => ", Array1);
+const newArray2 = Array1.push(9);
+console.log("the new array => ", newArray2);
+console.log("the original array updated again => ", Array1);
 
 // console.log("getting the first item in the array => ", Array1[5]);
 
 // console.log("the array1 => ", Array1);
 // console.log("the array1 length => ", Array1.length);
+
+//check if emilys course is English Literature
 
 const studentArray = [
   { name: "John", age: 20, gender: "Male", course: "Computer Science" },
@@ -190,24 +207,71 @@ const studentArray = [
   { name: "Isabella", age: 22, gender: "Female", course: "Physics" },
 ];
 
-//slice
+// finding bobs age
+const bobsAGE = studentArray;
+// console.log("the bos data => ", bobsAGE);
 // const studentArraySliced = studentArray.slice(0, 6);
 // console.log("student sliced => ", studentArraySliced);
 
 //filter with gender age name
 const stage = studentArray.filter((student) => student.age === 50);
-console.log("stdent ages => ", stage);
+// console.log("stdent ages => ", stage);
 
 const stname = studentArray.filter((student) => student.course === "Physics");
 //assignment:filter the female students and map the filterd students and show only the name and course
 const stgnd = studentArray.filter((student) => student.gender === "Male");
 
-console.log("student name => ", stname);
-console.log("student gender => ", stgnd);
+// console.log("student name => ", stname);
+// console.log("student gender => ", stgnd);
 
 //map
-const mappedStdnts = studentArray.map((student) => {
-  return { name: student.name, gender: student.gender };
+const mappedStdnts = stgnd.map((student) => {
+  return { name: student.name, course: student.course };
 });
+console.log("mappedStdnts => ", mappedStdnts);
 
-console.log("the mapped student data => ", mappedStdnts);
+// mapped female students
+const mappedFemale = studentArray
+  .filter((student) => student.gender === "Female")
+  .map((student) => {
+    return {
+      name: student.name,
+      course: student.course,
+    };
+  });
+
+// console.log("Mapped female students => " + mappedFemale);
+
+// console.log("the mapped student data => ", mappedStdnts);
+
+//conditional statements and flow
+if (mappedStdnts[0].course === "Computer Science") {
+  // do something
+  // console.log("the name is coreect yes");
+} else {
+  // do anotherthing
+  console.log("the name is wrong no");
+}
+
+if (mappedStdnts.length > 30) {
+  console.log("the mapped student is ok");
+} else if (mappedStdnts[3].course === "History") {
+  console.log("yes its true");
+} else {
+  console.log("nothing worked");
+}
+
+const johnage = studentArray[0].age;
+const aliceage = studentArray[1].age;
+
+const check = johnage + aliceage > 100;
+console.log("the check value is " + !check);
+if (check) {
+  console.log("yes");
+} else {
+  console.log("no");
+}
+
+//get the sum of all the students
+//get the sum of all male students
+//get the sum of all female students
